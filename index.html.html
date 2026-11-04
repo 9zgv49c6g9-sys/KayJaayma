@@ -1,0 +1,684 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>KAY JAAYMA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="KAY JAAYMA, la marketplace sénégalaise. Achetez et vendez téléphones, véhicules, immobilier, mode et plus dans les 14 régions du Sénégal. Le marché est chez vous.">
+<meta property="og:title" content="KAY JAAYMA, le marché est chez vous">
+<meta property="og:description" content="Petites annonces et boutiques dans tout le Sénégal. Contactez les vendeurs directement sur WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A7B57">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"KAY JAAYMA","description":"Marketplace sénégalaise de petites annonces","inLanguage":"fr-SN"}</script>
+<style>
+/* Layout : en-tête collant, bandeau héros émeraude à motif tissé, grilles d'annonces denses, espace vendeur et admin en onglets. */
+:root{
+  --em:#0A7B57; --em-d:#065F43; --em-l:#E3F4EC; --on-em:#FFFFFF;
+  --ink:#0E1B2E; --mut:#586678; --bg:#FFFFFF; --surf:#F4F8F6; --line:#DAE4DF;
+  --sun:#E9A82B; --sun-ink:#4A3200; --bad:#BE3A2C; --bad-l:#FBE9E6;
+  --f-d:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-b:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --em:#2DBB86; --em-d:#1E9468; --em-l:#10332A; --on-em:#04281D;
+  --ink:#E9F1EE; --mut:#9FB0AA; --bg:#0A151E; --surf:#101E29; --line:#22343D;
+  --sun:#F0B642; --sun-ink:#2B1D00; --bad:#F07B6C; --bad-l:#3A1A17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --em:#2DBB86; --em-d:#1E9468; --em-l:#10332A; --on-em:#04281D;
+  --ink:#E9F1EE; --mut:#9FB0AA; --bg:#0A151E; --surf:#101E29; --line:#22343D;
+  --sun:#F0B642; --sun-ink:#2B1D00; --bad:#F07B6C; --bad-l:#3A1A17; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-d);line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,7vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.35rem,3.6vw,1.9rem);font-weight:800}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1180px;margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.55rem 1.1rem;border-radius:10px;border:1.5px solid var(--em);background:var(--em);color:var(--on-em);font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--em-d);border-color:var(--em-d)}
+.btn.ghost{background:transparent;color:var(--em)}
+.btn.ghost:hover{background:var(--em-l)}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.btn.sm{min-height:36px;padding:.3rem .8rem;font-size:.88rem}
+.btn.danger{background:transparent;border-color:var(--bad);color:var(--bad)}
+.btn.danger[data-armed]{background:var(--bad);color:#fff}
+.btn.wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+/* en-tête */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.bar{display:flex;align-items:center;gap:.75rem;min-height:62px}
+.logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-family:var(--f-d);font-weight:800;font-size:1.2rem;letter-spacing:.02em;color:var(--ink);background:none;border:0;padding:0;cursor:pointer}
+.logo svg{width:36px;height:36px;flex:none}
+.logo b{color:var(--em)}
+nav.main{display:none;gap:.25rem;margin-left:.75rem}
+nav.main button,.drawer button.l{background:none;border:0;padding:.5rem .7rem;border-radius:8px;font-weight:600;cursor:pointer;color:var(--ink);text-align:left}
+nav.main button:hover,.drawer button.l:hover{background:var(--surf)}
+.spacer{flex:1}
+.bar .desk{display:none;gap:.5rem}
+.burger{min-width:44px;min-height:44px;border:1.5px solid var(--line);background:var(--bg);border-radius:10px;cursor:pointer;font-weight:700}
+.drawer{display:grid;gap:.25rem;padding:.5rem 0 1rem}
+.drawer .btn{width:100%}
+@media(min-width:900px){nav.main,.bar .desk{display:flex}.burger,.drawer{display:none}}
+/* héros */
+.hero{margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:2.2rem max(16px,env(safe-area-inset-left,0px)) 2.6rem;color:#fff;
+  background:
+   linear-gradient(135deg,rgba(255,255,255,.07) 25%,transparent 25%) 0 0/28px 28px,
+   linear-gradient(225deg,rgba(255,255,255,.07) 25%,transparent 25%) 0 0/28px 28px,
+   linear-gradient(135deg,#0A7B57,#064E39)}
+.hero .tag{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#CFF3E3;margin-bottom:.8rem}
+.hero p.sub{max-width:46ch;margin-top:.9rem;color:#E1F6EC;font-size:1.05rem}
+.search{display:grid;gap:.5rem;margin-top:1.4rem;background:var(--bg);padding:.6rem;border-radius:14px;max-width:820px;color:var(--ink)}
+.search input,.search select{min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:0 .8rem;background:var(--bg);width:100%;min-width:0}
+@media(min-width:700px){.search{grid-template-columns:1fr 210px auto}}
+/* sections */
+section.s{padding-block:2.2rem}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.sh .more{background:none;border:0;color:var(--em);font-weight:700;cursor:pointer;padding:.3rem 0}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+.cat{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;text-align:left;padding:.9rem;border:1px solid var(--line);border-radius:12px;background:var(--surf);cursor:pointer;min-height:96px}
+.cat:hover{border-color:var(--em)}
+.cat svg{width:28px;height:28px;stroke:var(--em);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cat span{font-weight:600;font-size:.92rem;line-height:1.25}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);text-align:left;cursor:pointer;padding:0;min-width:0}
+.card:hover{border-color:var(--em)}
+.ph{position:relative;aspect-ratio:4/3;background:var(--em-l);display:grid;place-items:center;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph svg{width:38px;height:38px;stroke:var(--em);fill:none;stroke-width:1.5}
+.badges{position:absolute;left:6px;top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.bd{font-size:.7rem;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.bd.sun{background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
+.bd.red{background:var(--bad);color:#fff;border-color:var(--bad)}
+.bd.ok{background:var(--em-l);color:var(--em)}
+.cb{padding:.6rem .7rem .8rem;display:grid;gap:.15rem}
+.price{font-family:var(--f-d);font-weight:800;font-size:1.05rem;color:var(--em)}
+.ttl{font-weight:600;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word}
+.meta{font-size:.8rem;color:var(--mut)}
+.empty{border:1.5px dashed var(--line);border-radius:12px;padding:1.6rem 1rem;text-align:center;color:var(--mut)}
+.empty b{display:block;color:var(--ink);margin-bottom:.2rem}
+.shops{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.7rem}
+.shop{display:flex;gap:.7rem;align-items:center;padding:.8rem;border:1px solid var(--line);border-radius:12px;background:var(--surf);cursor:pointer;text-align:left}
+.av{width:44px;height:44px;border-radius:50%;background:var(--em);color:var(--on-em);display:grid;place-items:center;font-family:var(--f-d);font-weight:800;flex:none}
+.steps{display:grid;gap:.8rem;counter-reset:st}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:1.1rem;border:1px solid var(--line);border-radius:12px;background:var(--surf);display:grid;gap:.3rem}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-d);font-weight:800;font-size:1.6rem;color:var(--em)}
+.cta{border-radius:16px;background:var(--em-l);padding:1.6rem;display:grid;gap:1rem;align-items:center}
+@media(min-width:800px){.cta{grid-template-columns:1fr auto;padding:2rem}}
+.banner{display:flex;gap:.8rem;align-items:center;border:1px solid var(--sun);background:var(--surf);border-radius:12px;padding:.8rem;text-decoration:none}
+.banner img{width:96px;height:56px;object-fit:cover;border-radius:8px;flex:none}
+/* alertes */
+.note{border:1px solid var(--sun);background:var(--surf);border-radius:12px;padding:.9rem 1rem;margin-top:1rem}
+.note b{display:block}
+.err{background:var(--bad-l);color:var(--bad);border-radius:10px;padding:.6rem .8rem;font-weight:600}
+/* formulaires */
+.pg{padding-block:1.6rem 2.4rem;display:grid;gap:1.2rem}
+.form{display:grid;gap:.9rem;max-width:640px}
+.f{display:grid;gap:.3rem}
+.f label{font-weight:600;font-size:.9rem}
+.f input,.f select,.f textarea{min-height:46px;border:1.5px solid var(--line);border-radius:10px;padding:.55rem .75rem;background:var(--bg);width:100%;min-width:0}
+.f textarea{min-height:130px;resize:vertical}
+.f small{color:var(--mut)}
+.row2{display:grid;gap:.9rem}
+@media(min-width:600px){.row2{grid-template-columns:1fr 1fr}}
+.tabs{display:flex;gap:.3rem;overflow-x:auto;border-bottom:1px solid var(--line);padding-bottom:0}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:.65rem .8rem;font-weight:600;color:var(--mut);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--em);border-bottom-color:var(--em)}
+.filters{display:grid;gap:.6rem;grid-template-columns:repeat(2,minmax(0,1fr));padding:.9rem;border:1px solid var(--line);border-radius:12px;background:var(--surf)}
+.filters .f.w{grid-column:1/-1}
+@media(min-width:900px){.filters{grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr auto;align-items:end}.filters .f.w{grid-column:auto}}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem}
+th,td{padding:.55rem .7rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{background:var(--surf);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+td .btn{margin:2px 2px 2px 0}
+td input,td select{min-height:36px;border:1.5px solid var(--line);border-radius:8px;padding:0 .5rem;background:var(--bg);max-width:100%}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:.9rem;background:var(--surf)}
+.kpi b{display:block;font-family:var(--f-d);font-size:1.7rem;font-weight:800;color:var(--em);font-variant-numeric:tabular-nums}
+.kpi span{font-size:.82rem;color:var(--mut)}
+/* fiche */
+.det{display:grid;gap:1.4rem}
+@media(min-width:850px){.det{grid-template-columns:1.25fr 1fr;align-items:start}}
+.gal .big{aspect-ratio:4/3;background:var(--em-l);border-radius:14px;overflow:hidden;display:grid;place-items:center}
+.gal .big img{width:100%;height:100%;object-fit:contain;background:var(--surf)}
+.thumbs{display:flex;gap:.4rem;margin-top:.5rem;overflow-x:auto}
+.thumbs button{width:64px;height:64px;flex:none;border:2px solid var(--line);border-radius:8px;padding:0;overflow:hidden;cursor:pointer;background:none}
+.thumbs button[aria-current="true"]{border-color:var(--em)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{display:grid;gap:.8rem}
+.info .price{font-size:1.7rem}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.3rem .9rem;font-size:.92rem}
+.kv dt{color:var(--mut)}.kv dd{margin:0;font-weight:600}
+.desc{white-space:pre-wrap;word-break:break-word}
+.acts{display:flex;gap:.5rem;flex-wrap:wrap}
+.previews{display:flex;gap:.4rem;flex-wrap:wrap}
+.previews div{position:relative;width:72px;height:72px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.previews img{width:100%;height:100%;object-fit:cover}
+.previews button{position:absolute;right:2px;top:2px;width:24px;height:24px;border-radius:50%;border:0;background:var(--bad);color:#fff;cursor:pointer;font-weight:700;line-height:1}
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}
+.offer{border:1px solid var(--line);border-radius:14px;padding:1.1rem;display:grid;gap:.5rem;background:var(--surf);align-content:start}
+.offer .price{font-size:1.5rem}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--surf);border:1px solid var(--line)}
+.pill.pending{background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
+.pill.published,.pill.paid,.pill.resolved{background:var(--em-l);color:var(--em);border-color:var(--em)}
+.pill.rejected,.pill.open,.pill.cancelled{background:var(--bad-l);color:var(--bad);border-color:var(--bad)}
+footer.ft{margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:2rem max(16px,env(safe-area-inset-left,0px)) 2.4rem;background:var(--ink);color:#DCE7E3;margin-top:1rem}
+:root[data-theme="dark"] footer.ft{background:var(--surf)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.ft{background:var(--surf)}}
+footer.ft .cols{display:grid;gap:1.4rem}
+@media(min-width:800px){footer.ft .cols{grid-template-columns:1.3fr 1fr 1fr}}
+footer.ft button{background:none;border:0;color:inherit;padding:.25rem 0;text-align:left;cursor:pointer;opacity:.9}
+footer.ft button:hover{text-decoration:underline}
+footer.ft .col{display:grid;gap:.1rem;align-content:start}
+footer.ft h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem;color:#9FD9C0}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;background:var(--ink);color:var(--bg);padding:.7rem 1.1rem;border-radius:10px;font-weight:600;max-width:min(92vw,520px);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+#toast.bad{background:var(--bad);color:#fff}
+.sk{height:180px;border-radius:12px;background:linear-gradient(90deg,var(--surf),var(--line),var(--surf));background-size:200% 100%;animation:sk 1.2s infinite}
+@keyframes sk{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.sk{animation:none}}
+.crumbs{font-size:.88rem;color:var(--mut)}
+.crumbs button{background:none;border:0;color:var(--em);font-weight:600;cursor:pointer;padding:0}
+</style>
+
+<div id="hdr"></div>
+<main id="app" class="wrap" tabindex="-1"></main>
+<div id="ftr"></div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+/* ==========================================================
+   CONFIGURATION : collez ici les deux valeurs de votre projet
+   Supabase (Project Settings > API). Voir README.md.
+   ========================================================== */
+var KJ_SUPABASE_URL = '';
+var KJ_SUPABASE_ANON_KEY = '';
+
+(function(){
+'use strict';
+var REGIONS=['Dakar','Diourbel','Fatick','Kaffrine','Kaolack','Kédougou','Kolda','Louga','Matam','Saint-Louis','Sédhiou','Tambacounda','Thiès','Ziguinchor'];
+var ICONS={
+ telephones:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+ informatique:'<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/>',
+ vehicules:'<path d="M3 15l2-6h14l2 6v3H3z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/>',
+ immobilier:'<path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/>',
+ mode:'<path d="M8 3L3 7l3 3 2-1v12h8V9l2 1 3-3-5-4a4 4 0 01-8 0z"/>',
+ maison:'<path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4M3 12h18v5H3zM5 17v2M19 17v2"/>',
+ electromenager:'<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14M8 5h2"/>',
+ beaute:'<path d="M9 3h6v6H9zM8 9h8v12H8z"/>',
+ agriculture:'<path d="M12 21V9M12 9c0-4 3-6 7-6 0 4-2 7-7 6zM12 13c0-3-2-5-6-5 0 3 2 6 6 5z"/>',
+ services:'<path d="M14 6l4 4-9 9H5v-4zM13 7l4 4"/>',
+ sports:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'
+};
+var CATS0=[['telephones','Téléphones et accessoires'],['informatique','Informatique et électronique'],['vehicules','Véhicules et motos'],['immobilier','Immobilier'],['mode','Mode et vêtements'],['maison','Maison et mobilier'],['electromenager','Électroménager'],['beaute','Beauté et accessoires'],['agriculture','Agriculture'],['services','Services'],['sports','Sports et loisirs']].map(function(c,i){return{slug:c[0],name:c[1],sort:i+1}});
+var PRICING0=[
+ {key:'featured_7d',label:'Annonce mise en avant',description:'7 jours en tête des résultats et dans les produits sponsorisés',amount:2000},
+ {key:'urgent_badge',label:'Badge Urgent',description:'Étiquette Urgent visible sur l’annonce',amount:500},
+ {key:'pro_monthly',label:'Boutique professionnelle',description:'Abonnement mensuel : badge Pro et boutique mise en valeur',amount:10000},
+ {key:'banner_week',label:'Publicité sponsorisée',description:'Bannière sur la page d’accueil pendant 7 jours',amount:15000}];
+var LOGO='<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0A7B57"/><path d="M8 19c0-3 2-5 5-5h22c3 0 5 2 5 5H8z" fill="#E9A82B"/><path d="M8 19c0 3 3 3 5.5 3S19 22 19 19m0 0c0 3 2.5 3 5 3s5-0 5-3m0 0c0 3 2.5 3 5.5 3S40 22 40 19" fill="none" stroke="#065F43" stroke-width="1.2"/><path d="M17 27v10m0-5l8-5m-8 5l8 5" stroke="#fff" stroke-width="3.2" stroke-linecap="round" fill="none"/><circle cx="33" cy="32" r="3" fill="#fff"/></svg>';
+
+var cfg=(function(){
+  var u=KJ_SUPABASE_URL,k=KJ_SUPABASE_ANON_KEY;
+  try{ if(!u||!k){u=localStorage.getItem('kj_url')||'';k=localStorage.getItem('kj_key')||''} }catch(e){}
+  return {url:u,key:k};
+})();
+var sb=null;
+if(cfg.url&&cfg.key&&window.supabase){ try{sb=window.supabase.createClient(cfg.url,cfg.key)}catch(e){sb=null} }
+
+var S={user:null,profile:null,cats:CATS0,pricing:PRICING0,p:{},favs:new Set(),tab:null,edit:null,formImgs:[],pay:'',tok:0,menu:false};
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var fmt=function(n){return new Intl.NumberFormat('fr-FR').format(Number(n)||0)};
+var fdate=function(d){return d?new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):''};
+function ago(d){var s=(Date.now()-new Date(d).getTime())/1000;if(s<3600)return 'il y a '+Math.max(1,Math.round(s/60))+' min';if(s<86400)return 'il y a '+Math.round(s/3600)+' h';if(s<2592000)return 'il y a '+Math.round(s/86400)+' j';return fdate(d)}
+function catName(slug){var c=S.cats.filter(function(x){return x.slug===slug})[0];return c?c.name:slug}
+function ico(slug){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[slug]||'<rect x="4" y="4" width="16" height="16" rx="3"/>')+'</svg>'}
+function toast(m,bad){var t=$('#toast');t.textContent=m;t.className=bad?'bad':'';t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){t.hidden=true},bad?6000:3500)}
+function isAdmin(){return S.profile&&S.profile.role==='admin'}
+function isSeller(){return S.profile&&(S.profile.role==='seller'||S.profile.role==='admin')}
+function waLink(num,title){var d=String(num||'').replace(/\D/g,'');if(d.length===9&&d[0]==='7')d='221'+d;return 'https://wa.me/'+d+'?text='+encodeURIComponent('Bonjour, je suis intéressé(e) par votre annonce « '+title+' » sur KAY JAAYMA.')}
+function db(){ if(!sb){toast('La base de données n’est pas connectée. Ouvrez la page Configuration.',true);return false} return true }
+async function run(p){ try{ var r=await p; if(r&&r.error){toast(r.error.message||'Une erreur est survenue',true)} return r||{} }catch(e){toast('Connexion impossible. Vérifiez votre réseau.',true);return {error:e}} }
+
+/* ---------- navigation ---------- */
+var VIEWS=['accueil','annonces','annonce','boutique','connexion','favoris','vendeur','admin','tarifs','configuration'];
+function go(name,p){S.p=p||{};S.menu=false;if(location.hash.slice(1)===name){render()}else{location.hash=name}window.scrollTo(0,0)}
+function cur(){var n=location.hash.slice(1)||'accueil';return n}
+window.addEventListener('hashchange',render);
+
+/* ---------- données ---------- */
+async function loadCats(){ if(!sb)return; var r=await sb.from('categories').select('*').order('sort'); if(r.data&&r.data.length)S.cats=r.data }
+async function loadPricing(){ if(!sb)return; var r=await sb.from('pricing').select('*').order('amount'); if(r.data&&r.data.length)S.pricing=r.data; var s=await sb.from('site_settings').select('*').eq('key','payment_instructions').maybeSingle(); if(s.data)S.pay=s.data.value }
+async function loadProfile(){
+  if(!sb||!S.user){S.profile=null;S.favs=new Set();return}
+  var r=await sb.from('profiles').select('*').eq('id',S.user.id).maybeSingle(); S.profile=r.data||null;
+  var f=await sb.from('favorites').select('listing_id'); S.favs=new Set((f.data||[]).map(function(x){return x.listing_id}));
+}
+async function fetchListings(o){
+  if(!sb)return[];
+  var r=sb.from('listings').select('*, profiles(full_name,shop_name,is_pro)').eq('status','published');
+  if(o.cat)r=r.eq('category',o.cat); if(o.region)r=r.eq('region',o.region); if(o.cond)r=r.eq('condition',o.cond);
+  if(o.min)r=r.gte('price',o.min); if(o.max)r=r.lte('price',o.max); if(o.seller)r=r.eq('seller_id',o.seller);
+  if(o.ids)r=r.in('id',o.ids.length?o.ids:['00000000-0000-0000-0000-000000000000']);
+  if(o.q){var q=o.q.replace(/[%,()*]/g,' ').trim();if(q)r=r.or('title.ilike.%'+q+'%,description.ilike.%'+q+'%')}
+  if(o.featured)r=r.gt('featured_until',new Date().toISOString());
+  r=r.order('created_at',{ascending:false}).range(o.offset||0,(o.offset||0)+(o.limit||24)-1);
+  var x=await run(r); return x.data||[];
+}
+
+/* ---------- composants ---------- */
+function card(l){
+  var fe=l.featured_until&&new Date(l.featured_until)>new Date();
+  var img=l.images&&l.images[0];
+  return '<button class="card" data-act="open" data-id="'+esc(l.id)+'"><div class="ph">'+(img?'<img src="'+esc(img)+'" alt="'+esc(l.title)+'" loading="lazy" decoding="async">':ico(l.category))+
+   '<div class="badges">'+(fe?'<span class="bd sun">Sponsorisé</span>':'')+(l.urgent?'<span class="bd red">Urgent</span>':'')+'<span class="bd">'+(l.condition==='neuf'?'Neuf':'Occasion')+'</span></div></div>'+
+   '<div class="cb"><span class="price">'+fmt(l.price)+' FCFA</span><span class="ttl">'+esc(l.title)+'</span><span class="meta">'+esc(l.city?l.city+', ':'')+esc(l.region)+' · '+ago(l.created_at)+'</span></div></button>';
+}
+function grid(list,emptyT,emptyD){
+  if(!list.length)return '<div class="empty"><b>'+esc(emptyT||'Aucune annonce pour le moment')+'</b>'+esc(emptyD||'Les annonces validées apparaîtront ici.')+'</div>';
+  return '<div class="grid">'+list.map(card).join('')+'</div>';
+}
+function regionOpts(sel,all){return (all?'<option value="">'+all+'</option>':'')+REGIONS.map(function(r){return '<option'+(r===sel?' selected':'')+'>'+r+'</option>'}).join('')}
+function catOpts(sel,all){return (all?'<option value="">'+all+'</option>':'')+S.cats.map(function(c){return '<option value="'+esc(c.slug)+'"'+(c.slug===sel?' selected':'')+'>'+esc(c.name)+'</option>'}).join('')}
+function notConnected(){
+  if(sb)return '';
+  return '<div class="note"><b>Base de données non connectée</b>Le site est prêt, mais aucune annonce ni aucun compte ne peut exister tant que Supabase n’est pas relié. <button class="btn sm sun" data-act="nav" data-to="configuration" style="margin-top:.5rem">Voir la configuration</button></div>';
+}
+function head(){
+  var u=S.user,adm=isAdmin();
+  var links=[['annonces','Annonces'],['tarifs','Tarifs']];
+  var nav='<nav class="main" aria-label="Navigation principale">'+links.map(function(l){return '<button data-act="nav" data-to="'+l[0]+'">'+l[1]+'</button>'}).join('')+(u?'<button data-act="nav" data-to="favoris">Favoris</button>':'')+'</nav>';
+  var auth=u?
+   '<button class="btn ghost sm" data-act="nav" data-to="vendeur">Mon espace</button>'+(adm?'<button class="btn ghost sm" data-act="nav" data-to="admin">Admin</button>':'')+'<button class="btn ghost sm" data-act="logout">Déconnexion</button>':
+   '<button class="btn ghost sm" data-act="auth" data-mode="in">Connexion</button><button class="btn ghost sm" data-act="auth" data-mode="up">Inscription</button>';
+  var post='<button class="btn sm" data-act="post">Déposer une annonce</button>';
+  var drawer=S.menu?'<div class="drawer">'+links.map(function(l){return '<button class="l" data-act="nav" data-to="'+l[0]+'">'+l[1]+'</button>'}).join('')+
+   (u?'<button class="l" data-act="nav" data-to="favoris">Mes favoris</button><button class="l" data-act="nav" data-to="vendeur">Mon espace</button>'+(adm?'<button class="l" data-act="nav" data-to="admin">Administration</button>':'')+'<button class="l" data-act="logout">Déconnexion</button>':
+   '<button class="l" data-act="auth" data-mode="in">Connexion</button><button class="l" data-act="auth" data-mode="up">Inscription</button>')+
+   '<button class="btn" data-act="post">Déposer une annonce</button></div>':'';
+  $('#hdr').innerHTML='<header class="top"><div class="wrap"><div class="bar"><button class="logo" data-act="nav" data-to="accueil" aria-label="KAY JAAYMA, accueil">'+LOGO+'<span>KAY <b>JAAYMA</b></span></button>'+nav+'<span class="spacer"></span><div class="desk">'+auth+post+'</div><button class="burger" data-act="menu" aria-expanded="'+S.menu+'" aria-label="Menu">'+(S.menu?'Fermer':'Menu')+'</button></div>'+drawer+'</div></header>';
+}
+function foot(){
+  $('#ftr').innerHTML='<footer class="ft"><div class="wrap"><div class="cols"><div><div class="logo" style="color:#fff">'+LOGO+'<span>KAY <b style="color:#7FE0B5">JAAYMA</b></span></div><p style="margin-top:.7rem;max-width:34ch;opacity:.85">Le marché est chez vous. Petites annonces et boutiques dans les 14 régions du Sénégal.</p></div>'+
+   '<div class="col"><h3>Le site</h3><button data-act="nav" data-to="accueil">Accueil</button><button data-act="nav" data-to="annonces">Toutes les annonces</button><button data-act="nav" data-to="tarifs">Tarifs vendeurs</button><button data-act="post">Déposer une annonce</button><button data-act="nav" data-to="configuration">Configuration</button></div>'+
+   '<div class="col"><h3>Régions</h3>'+REGIONS.slice(0,7).map(function(r){return '<button data-act="region" data-r="'+r+'">'+r+'</button>'}).join('')+'<button data-act="nav" data-to="annonces">Voir les 14 régions</button></div></div><p style="margin-top:1.6rem;opacity:.7;font-size:.85rem">© 2026 KAY JAAYMA. Tous droits réservés.</p></div></footer>';
+}
+
+/* ---------- vues ---------- */
+var V={};
+V.accueil=async function(){
+  var feat=await fetchListings({featured:true,limit:8});
+  var rec=await fetchListings({limit:8});
+  var ads=[],shops=[];
+  if(sb){
+    var a=await sb.from('ads').select('*').eq('active',true).limit(3); ads=a.data||[];
+    var s=await sb.from('profiles').select('id,shop_name,shop_description,region,is_pro').eq('role','seller').not('shop_name','is',null).order('is_pro',{ascending:false}).limit(8); shops=s.data||[];
+  }
+  return '<section class="hero" aria-label="Recherche"><div class="wrap"><span class="tag">Marketplace du Sénégal</span><h1>Le marché est chez vous.</h1><p class="sub">Vendez ce que vous n’utilisez plus, trouvez ce qu’il vous faut près de chez vous, et discutez directement avec le vendeur sur WhatsApp.</p>'+
+   '<form class="search" data-form="search" role="search"><input id="hq" type="search" name="q" placeholder="Que cherchez-vous ? iPhone, moto, terrain…" aria-label="Rechercher un produit"><select id="hr" name="region" aria-label="Région">'+regionOpts('', 'Tout le Sénégal')+'</select><button class="btn sun" type="submit">Rechercher</button></form></div></section>'+
+   '<div class="wrap">'+notConnected()+
+   '<section class="s"><div class="sh"><h2>Catégories populaires</h2></div><div class="cats">'+S.cats.map(function(c){return '<button class="cat" data-act="cat" data-slug="'+esc(c.slug)+'">'+ico(c.slug)+'<span>'+esc(c.name)+'</span></button>'}).join('')+'</div></section>'+
+   (ads.length?'<section class="s" style="padding-top:0"><div style="display:grid;gap:.6rem">'+ads.map(function(a){return '<a class="banner" href="'+esc(a.link_url||'#')+'" target="_blank" rel="noopener sponsored">'+(a.image_url?'<img src="'+esc(a.image_url)+'" alt="">':'')+'<span><span class="bd sun">Publicité</span><br><b>'+esc(a.title)+'</b></span></a>'}).join('')+'</div></section>':'')+
+   '<section class="s"><div class="sh"><h2>Produits sponsorisés</h2></div>'+grid(feat,'Aucun produit sponsorisé','Les annonces mises en avant par leurs vendeurs s’affichent ici.')+'</section>'+
+   '<section class="s"><div class="sh"><h2>Annonces récentes</h2><button class="more" data-act="nav" data-to="annonces">Tout voir</button></div>'+grid(rec)+'</section>'+
+   '<section class="s"><div class="sh"><h2>Boutiques populaires</h2></div>'+(shops.length?'<div class="shops">'+shops.map(function(s){return '<button class="shop" data-act="shop" data-id="'+esc(s.id)+'"><span class="av">'+esc((s.shop_name||'?').charAt(0).toUpperCase())+'</span><span><b>'+esc(s.shop_name)+'</b>'+(s.is_pro?' <span class="bd ok">Pro</span>':'')+'<br><span class="meta">'+esc(s.region||'Sénégal')+'</span></span></button>'}).join('')+'</div>':'<div class="empty"><b>Aucune boutique pour le moment</b>Les vendeurs qui créent leur boutique apparaîtront ici.</div>')+'</section>'+
+   '<section class="s"><div class="sh"><h2>Comment ça marche ?</h2></div><div class="steps"><div class="step"><h3>Créez votre compte</h3><p class="meta" style="font-size:.95rem">Inscription gratuite avec votre email et votre numéro WhatsApp.</p></div><div class="step"><h3>Publiez votre annonce</h3><p class="meta" style="font-size:.95rem">Ajoutez des photos, un prix en FCFA et votre région. L’équipe valide avant publication.</p></div><div class="step"><h3>Vendez par WhatsApp</h3><p class="meta" style="font-size:.95rem">Les acheteurs vous écrivent directement. Vous fixez le rendez-vous et le paiement.</p></div></div></section>'+
+   '<section class="s"><div class="cta"><div><h2>Devenir vendeur</h2><p style="margin-top:.5rem;max-width:52ch">Particulier, commerçant ou entreprise : publiez gratuitement, ou ouvrez une boutique professionnelle pour plus de visibilité.</p></div><div class="acts"><button class="btn" data-act="seller-cta">Commencer à vendre</button><button class="btn ghost" data-act="nav" data-to="tarifs">Voir les tarifs</button></div></div></section></div>';
+};
+
+V.annonces=async function(){
+  var p=S.p; var o={q:p.q,region:p.region,cat:p.cat,cond:p.cond,min:p.min,max:p.max,limit:24,offset:0};
+  var list=await fetchListings(o); S.list=list;
+  var title=p.cat?catName(p.cat):(p.q?'Résultats pour « '+esc(p.q)+' »':'Toutes les annonces');
+  return '<div class="pg"><div class="crumbs"><button data-act="nav" data-to="accueil">Accueil</button> / Annonces</div><h1 style="font-size:clamp(1.6rem,5vw,2.3rem)">'+title+(p.region?' · '+esc(p.region):'')+'</h1>'+notConnected()+
+   '<form class="filters" data-form="filters"><div class="f w"><label for="fq">Recherche</label><input id="fq" name="q" value="'+esc(p.q||'')+'" placeholder="Produit"></div>'+
+   '<div class="f"><label for="fr">Région</label><select id="fr" name="region">'+regionOpts(p.region,'Toutes')+'</select></div>'+
+   '<div class="f"><label for="fc">Catégorie</label><select id="fc" name="cat">'+catOpts(p.cat,'Toutes')+'</select></div>'+
+   '<div class="f"><label for="fs">État</label><select id="fs" name="cond"><option value="">Tous</option><option value="neuf"'+(p.cond==='neuf'?' selected':'')+'>Neuf</option><option value="occasion"'+(p.cond==='occasion'?' selected':'')+'>Occasion</option></select></div>'+
+   '<div class="f"><label for="fmin">Prix min (FCFA)</label><input id="fmin" name="min" type="number" min="0" inputmode="numeric" value="'+esc(p.min||'')+'"></div>'+
+   '<div class="f"><label for="fmax">Prix max (FCFA)</label><input id="fmax" name="max" type="number" min="0" inputmode="numeric" value="'+esc(p.max||'')+'"></div>'+
+   '<button class="btn" type="submit">Filtrer</button></form>'+
+   '<div id="results">'+grid(list,'Aucune annonce trouvée','Essayez une autre région, une autre catégorie ou un autre prix.')+'</div>'+
+   (list.length>=24?'<div style="text-align:center"><button class="btn ghost" data-act="more">Voir plus d’annonces</button></div>':'')+'</div>';
+};
+
+V.annonce=async function(){
+  if(!S.p.id){go('annonces');return null}
+  if(!sb)return '<div class="pg"><div class="empty"><b>Annonce introuvable</b>La base de données n’est pas connectée.</div></div>';
+  var r=await run(sb.from('listings').select('*, profiles(id,full_name,shop_name,is_pro,role)').eq('id',S.p.id).maybeSingle());
+  var l=r.data;
+  if(!l)return '<div class="pg"><div class="empty"><b>Annonce introuvable</b>Elle a peut-être été retirée ou n’est pas encore validée.<br><br><button class="btn" data-act="nav" data-to="annonces">Voir les annonces</button></div></div>';
+  try{var k='kjv_'+l.id; if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1'); sb.rpc('increment_views',{p:l.id})}}catch(e){}
+  var imgs=l.images||[]; var fav=S.favs.has(l.id); var sp=l.profiles||{}; var name=sp.shop_name||sp.full_name||'Vendeur';
+  return '<div class="pg"><div class="crumbs"><button data-act="nav" data-to="annonces">Annonces</button> / '+esc(catName(l.category))+'</div><div class="det"><div class="gal"><div class="big" id="bigimg">'+(imgs[0]?'<img src="'+esc(imgs[0])+'" alt="'+esc(l.title)+'">':ico(l.category))+'</div>'+
+   (imgs.length>1?'<div class="thumbs">'+imgs.map(function(u,i){return '<button data-act="thumb" data-src="'+esc(u)+'" aria-label="Photo '+(i+1)+'"'+(i===0?' aria-current="true"':'')+'><img src="'+esc(u)+'" alt="" loading="lazy"></button>'}).join('')+'</div>':'')+'</div>'+
+   '<div class="info"><div><span class="bd '+(l.condition==='neuf'?'ok':'')+'">'+(l.condition==='neuf'?'Neuf':'Occasion')+'</span>'+(l.urgent?' <span class="bd red">Urgent</span>':'')+(l.status!=='published'?' <span class="pill '+l.status+'">'+({pending:'En attente de validation',rejected:'Refusée',sold:'Vendu'}[l.status]||l.status)+'</span>':'')+'</div>'+
+   '<h1 style="font-size:clamp(1.5rem,4.5vw,2.1rem)">'+esc(l.title)+'</h1><div class="price">'+fmt(l.price)+' FCFA</div>'+
+   '<dl class="kv"><dt>Localisation</dt><dd>'+esc(l.city?l.city+', ':'')+esc(l.region)+'</dd><dt>Catégorie</dt><dd>'+esc(catName(l.category))+'</dd><dt>Publiée le</dt><dd>'+fdate(l.created_at)+'</dd><dt>Vendeur</dt><dd><button class="btn sm ghost" data-act="shop" data-id="'+esc(l.seller_id)+'">'+esc(name)+(sp.is_pro?' · Pro':'')+'</button></dd></dl>'+
+   '<div class="acts"><a class="btn wa" href="'+esc(waLink(l.whatsapp,l.title))+'" target="_blank" rel="noopener">Contacter sur WhatsApp</a><button class="btn ghost" data-act="fav" data-id="'+esc(l.id)+'" aria-pressed="'+fav+'">'+(fav?'Retirer des favoris':'Ajouter aux favoris')+'</button></div>'+
+   '<div><h3 style="margin-bottom:.4rem">Description</h3><p class="desc">'+esc(l.description)+'</p></div>'+
+   '<div><button class="btn sm danger" style="border-color:var(--line);color:var(--mut)" data-act="report-open">Signaler l’annonce</button><form class="form" id="repf" data-form="report" data-id="'+esc(l.id)+'" hidden style="margin-top:.7rem"><div class="f"><label for="rr">Motif du signalement</label><select id="rr" name="reason"><option>Arnaque ou fraude</option><option>Produit interdit</option><option>Annonce en double</option><option>Informations fausses</option><option>Autre</option></select></div><div class="f"><label for="rd">Détails (facultatif)</label><input id="rd" name="detail" maxlength="200"></div><button class="btn sm" type="submit">Envoyer le signalement</button></form></div>'+
+   '</div></div></div>';
+};
+
+V.boutique=async function(){
+  if(!sb||!S.p.id){go('annonces');return null}
+  var r=await run(sb.from('profiles').select('id,full_name,shop_name,shop_description,region,city,is_pro,created_at').eq('id',S.p.id).maybeSingle());
+  var s=r.data; if(!s)return '<div class="pg"><div class="empty"><b>Boutique introuvable</b></div></div>';
+  var list=await fetchListings({seller:s.id,limit:48});
+  var name=s.shop_name||s.full_name||'Vendeur';
+  return '<div class="pg"><div class="crumbs"><button data-act="nav" data-to="accueil">Accueil</button> / Boutique</div><div class="shop" style="cursor:default"><span class="av" style="width:56px;height:56px">'+esc(name.charAt(0).toUpperCase())+'</span><span><h1 style="font-size:1.6rem">'+esc(name)+'</h1><span class="meta">'+(s.is_pro?'<span class="bd ok">Boutique Pro</span> · ':'')+esc([s.city,s.region].filter(Boolean).join(', ')||'Sénégal')+' · Membre depuis '+fdate(s.created_at)+'</span></span></div>'+(s.shop_description?'<p class="desc">'+esc(s.shop_description)+'</p>':'')+'<h2>Annonces de la boutique</h2>'+grid(list,'Aucune annonce publiée','Ce vendeur n’a pas encore d’annonce validée.')+'</div>';
+};
+
+V.favoris=async function(){
+  if(!S.user){return gate('Connectez-vous pour retrouver vos favoris.')}
+  var list=await fetchListings({ids:Array.from(S.favs),limit:48});
+  return '<div class="pg"><h1 style="font-size:2rem">Mes favoris</h1>'+grid(list,'Aucun favori','Touchez « Ajouter aux favoris » sur une annonce pour la retrouver ici.')+'</div>';
+};
+function gate(msg){return '<div class="pg"><div class="empty"><b>'+esc(msg)+'</b><br><button class="btn" data-act="auth" data-mode="in">Connexion</button> <button class="btn ghost" data-act="auth" data-mode="up">Inscription</button></div></div>'}
+
+V.connexion=async function(){
+  var up=S.p.mode==='up'; var role=S.p.role||'buyer';
+  return '<div class="pg"><div class="form"><h1 style="font-size:2rem">'+(up?'Créer un compte':'Connexion')+'</h1>'+notConnected()+
+   '<div class="tabs" role="tablist"><button role="tab" aria-selected="'+!up+'" data-act="auth" data-mode="in">Connexion</button><button role="tab" aria-selected="'+up+'" data-act="auth" data-mode="up">Inscription</button></div>'+
+   '<form class="form" data-form="'+(up?'signup':'signin')+'" id="authf">'+
+   (up?'<div class="f"><label for="an">Nom complet</label><input id="an" name="name" required autocomplete="name"></div><div class="f"><label for="ap">Numéro WhatsApp</label><input id="ap" name="phone" type="tel" inputmode="tel" placeholder="77 123 45 67" autocomplete="tel" required></div><div class="f"><label for="ar">Je veux</label><select id="ar" name="role"><option value="buyer"'+(role==='buyer'?' selected':'')+'>Acheter</option><option value="seller"'+(role==='seller'?' selected':'')+'>Vendre et acheter</option></select></div>':'')+
+   '<div class="f"><label for="ae">Email</label><input id="ae" name="email" type="email" required autocomplete="email"></div><div class="f"><label for="aw">Mot de passe</label><input id="aw" name="pw" type="password" minlength="8" required autocomplete="'+(up?'new-password':'current-password')+'">'+(up?'<small>8 caractères minimum.</small>':'')+'</div>'+
+   '<div id="autherr"></div><button class="btn" type="submit">'+(up?'Créer mon compte':'Se connecter')+'</button>'+(up?'':'<button class="btn ghost sm" type="button" data-act="reset" style="justify-self:start">Mot de passe oublié ?</button>')+'</form></div></div>';
+};
+
+V.tarifs=async function(){
+  await loadPricing();
+  return '<div class="pg"><h1 style="font-size:2rem">Tarifs vendeurs</h1><p style="max-width:60ch">Publier une annonce classique est gratuit. Les options ci-dessous donnent plus de visibilité. Les prix sont en FCFA et fixés par l’administrateur.</p>'+
+   '<div class="offers"><div class="offer"><h3>Annonce classique</h3><div class="price">Gratuit</div><p class="meta">Photos multiples, WhatsApp, statistiques de consultation. Publiée après validation.</p><button class="btn ghost" data-act="post">Déposer une annonce</button></div>'+
+   S.pricing.map(function(p){return '<div class="offer"><h3>'+esc(p.label)+'</h3><div class="price">'+fmt(p.amount)+' FCFA</div><p class="meta">'+esc(p.description||'')+'</p></div>'}).join('')+'</div>'+
+   '<div class="note"><b>Paiement</b>'+esc(S.pay||PAYDEF)+'</div></div>';
+};
+var PAYDEF='Le paiement automatique Wave et Orange Money n’est pas encore actif. Contactez l’équipe KAY JAAYMA pour régler votre commande.';
+
+V.configuration=async function(){
+  return '<div class="pg"><h1 style="font-size:2rem">Configuration</h1><div class="note" style="margin-top:0"><b>État : '+(sb?'base de données connectée':'non connectée')+'</b>'+(sb?'Le site utilise votre projet Supabase.':'Suivez les étapes ci-dessous. Elles prennent environ dix minutes et ne demandent aucun code.')+'</div>'+
+   '<ol style="max-width:62ch;padding-left:1.2rem;display:grid;gap:.5rem"><li>Créez un projet gratuit sur supabase.com.</li><li>Ouvrez <b>SQL Editor</b>, collez le contenu du fichier <b>schema.sql</b> et cliquez sur <b>Run</b>.</li><li>Dans <b>Project Settings > API</b>, copiez l’URL du projet et la clé <b>anon public</b>.</li><li>Collez-les ci-dessous (ou dans les deux lignes en haut du script de <b>index.html</b>).</li><li>Créez votre compte sur le site, puis exécutez la requête « Devenir administrateur » en bas de schema.sql.</li></ol>'+
+   '<form class="form" data-form="config"><div class="f"><label for="cu">URL du projet Supabase</label><input id="cu" name="url" value="'+esc(cfg.url)+'" placeholder="https://xxxx.supabase.co" autocomplete="off"></div><div class="f"><label for="ck">Clé anon public</label><input id="ck" name="key" value="'+esc(cfg.key)+'" autocomplete="off"><small>Cette clé est publique par conception. La sécurité repose sur les règles RLS de schema.sql. Ne collez jamais la clé service_role.</small></div><div class="acts"><button class="btn" type="submit">Enregistrer et connecter</button>'+(cfg.url?'<button class="btn ghost" type="button" data-act="cfg-clear">Effacer</button>':'')+'</div></form></div>';
+};
+
+/* ----- espace vendeur ----- */
+V.vendeur=async function(){
+  if(!S.user)return gate('Connectez-vous pour accéder à votre espace vendeur.');
+  if(!S.profile)return '<div class="pg"><div class="empty"><b>Profil introuvable</b>Reconnectez-vous ou vérifiez que schema.sql a été exécuté.</div></div>';
+  if(!isSeller())return '<div class="pg"><div class="cta"><div><h2>Passer en compte vendeur</h2><p style="margin-top:.5rem">Votre compte est un compte acheteur. Activez l’espace vendeur pour publier des annonces et ouvrir votre boutique.</p></div><button class="btn" data-act="become-seller">Activer mon espace vendeur</button></div></div>';
+  var tab=(S.tab&&S.tab.indexOf('a-')!==0)?S.tab:'annonces';
+  var tabs=[['annonces','Mes annonces'],['form',S.edit?'Modifier l’annonce':'Publier'],['boutique','Ma boutique'],['offres','Offres et commandes']];
+  var body='';
+  if(tab==='annonces')body=await vAds();
+  else if(tab==='form')body=vForm();
+  else if(tab==='boutique')body=vShop();
+  else body=await vOffers();
+  return '<div class="pg"><h1 style="font-size:2rem">Mon espace vendeur</h1><div class="tabs" role="tablist">'+tabs.map(function(t){return '<button role="tab" aria-selected="'+(t[0]===tab)+'" data-act="tab" data-tab="'+t[0]+'">'+t[1]+'</button>'}).join('')+'</div>'+body+'</div>';
+};
+var STAT={pending:'En attente',published:'Publiée',rejected:'Refusée',sold:'Vendu'};
+async function vAds(){
+  var r=await run(sb.from('listings').select('*').eq('seller_id',S.user.id).order('created_at',{ascending:false}));
+  var l=r.data||[]; S.mine=l;
+  var tv=l.reduce(function(a,x){return a+(x.views||0)},0);
+  var k='<div class="kpis"><div class="kpi"><b>'+l.length+'</b><span>annonces</span></div><div class="kpi"><b>'+l.filter(function(x){return x.status==='published'}).length+'</b><span>publiées</span></div><div class="kpi"><b>'+l.filter(function(x){return x.status==='pending'}).length+'</b><span>en attente de validation</span></div><div class="kpi"><b>'+fmt(tv)+'</b><span>consultations au total</span></div></div>';
+  if(!l.length)return k+'<div class="empty"><b>Vous n’avez pas encore d’annonce</b><br><button class="btn" data-act="tab" data-tab="form">Publier ma première annonce</button></div>';
+  return k+'<div class="tw"><table><thead><tr><th>Annonce</th><th>Prix</th><th>État</th><th>Vues</th><th>Actions</th></tr></thead><tbody>'+l.map(function(x){
+    var fe=x.featured_until&&new Date(x.featured_until)>new Date();
+    return '<tr><td><b>'+esc(x.title)+'</b><br><span class="meta">'+esc(x.region)+' · '+fdate(x.created_at)+'</span></td><td>'+fmt(x.price)+'</td><td><span class="pill '+x.status+'">'+STAT[x.status]+'</span>'+(fe?'<br><span class="bd sun">Sponsorisée jusqu’au '+fdate(x.featured_until)+'</span>':'')+'</td><td>'+(x.views||0)+'</td><td>'+
+     (x.status==='published'?'<button class="btn sm ghost" data-act="open" data-id="'+x.id+'">Voir</button>':'')+'<button class="btn sm ghost" data-act="edit" data-id="'+x.id+'">Modifier</button>'+
+     (x.status==='published'?'<button class="btn sm ghost" data-act="order" data-kind="featured_7d" data-id="'+x.id+'">Mettre en avant</button><button class="btn sm ghost" data-act="order" data-kind="urgent_badge" data-id="'+x.id+'">Urgent</button><button class="btn sm ghost" data-act="sold" data-id="'+x.id+'">Marquer vendu</button>':'')+
+     '<button class="btn sm danger" data-act="del-listing" data-id="'+x.id+'">Supprimer</button></td></tr>'}).join('')+'</tbody></table></div>';
+}
+function vForm(){
+  var e=S.edit||{}; var imgs=S.formImgs;
+  return '<form class="form" data-form="listing" style="margin-top:1rem"><h2>'+(S.edit?'Modifier l’annonce':'Nouvelle annonce')+'</h2>'+
+   '<div class="f"><label for="lt">Nom du produit</label><input id="lt" name="title" required minlength="3" maxlength="120" value="'+esc(e.title||'')+'"></div>'+
+   '<div class="f"><label for="ld">Description détaillée</label><textarea id="ld" name="description" required minlength="10">'+esc(e.description||'')+'</textarea></div>'+
+   '<div class="row2"><div class="f"><label for="lp">Prix en FCFA</label><input id="lp" name="price" type="number" min="0" step="1" inputmode="numeric" required value="'+esc(e.price==null?'':e.price)+'"></div><div class="f"><label for="lc">Catégorie</label><select id="lc" name="category" required>'+catOpts(e.category)+'</select></div></div>'+
+   '<div class="row2"><div class="f"><label for="ls">État du produit</label><select id="ls" name="condition"><option value="neuf"'+(e.condition==='neuf'?' selected':'')+'>Neuf</option><option value="occasion"'+(e.condition==='occasion'?' selected':'')+'>Occasion</option></select></div><div class="f"><label for="lw">Numéro WhatsApp</label><input id="lw" name="whatsapp" type="tel" inputmode="tel" required value="'+esc(e.whatsapp||(S.profile&&S.profile.phone)||'')+'" placeholder="77 123 45 67"></div></div>'+
+   '<div class="row2"><div class="f"><label for="lr">Région</label><select id="lr" name="region" required>'+regionOpts(e.region||(S.profile&&S.profile.region))+'</select></div><div class="f"><label for="li">Ville ou quartier</label><input id="li" name="city" value="'+esc(e.city||(S.profile&&S.profile.city)||'')+'"></div></div>'+
+   '<div class="f"><label for="lf">Photos (6 maximum)</label><input id="lf" name="files" type="file" accept="image/*" multiple><small>Les photos sont réduites automatiquement pour charger vite, même avec une connexion lente.</small></div>'+
+   (imgs.length?'<div class="previews">'+imgs.map(function(u,i){return '<div><img src="'+esc(u)+'" alt=""><button type="button" data-act="rm-img" data-i="'+i+'" aria-label="Retirer la photo">×</button></div>'}).join('')+'</div>':'')+
+   '<div id="lerr"></div><div class="acts"><button class="btn" type="submit" id="lsub">'+(S.edit?'Enregistrer':'Envoyer pour validation')+'</button>'+(S.edit?'<button class="btn ghost" type="button" data-act="edit-cancel">Annuler</button>':'')+'</div><p class="meta">Chaque annonce est vérifiée par l’équipe avant d’être visible. Une annonce modifiée repasse en validation.</p></form>';
+}
+function vShop(){
+  var p=S.profile;
+  return '<form class="form" data-form="shop" style="margin-top:1rem"><h2>Profil de boutique</h2><div class="f"><label for="sn">Nom de la boutique</label><input id="sn" name="shop_name" value="'+esc(p.shop_name||'')+'" maxlength="60"></div><div class="f"><label for="sd">Présentation</label><textarea id="sd" name="shop_description" maxlength="600">'+esc(p.shop_description||'')+'</textarea></div><div class="row2"><div class="f"><label for="sf">Votre nom</label><input id="sf" name="full_name" value="'+esc(p.full_name||'')+'" required></div><div class="f"><label for="sp">WhatsApp par défaut</label><input id="sp" name="phone" type="tel" value="'+esc(p.phone||'')+'"></div></div><div class="row2"><div class="f"><label for="sr">Région</label><select id="sr" name="region">'+regionOpts(p.region,'Choisir')+'</select></div><div class="f"><label for="sc">Ville</label><input id="sc" name="city" value="'+esc(p.city||'')+'"></div></div><button class="btn" type="submit" style="justify-self:start">Enregistrer la boutique</button></form>';
+}
+var KIND={featured_7d:'Annonce mise en avant',urgent_badge:'Badge Urgent',pro_monthly:'Boutique professionnelle',banner_week:'Publicité sponsorisée'};
+async function vOffers(){
+  await loadPricing();
+  var r=await run(sb.from('orders').select('*, listings(title)').eq('user_id',S.user.id).order('created_at',{ascending:false}));
+  var o=r.data||[]; var pr=function(k){var x=S.pricing.filter(function(p){return p.key===k})[0];return x?fmt(x.amount)+' FCFA':''};
+  return '<div style="display:grid;gap:1rem;margin-top:1rem"><div class="offers"><div class="offer"><h3>Boutique professionnelle</h3><div class="price">'+pr('pro_monthly')+' / mois</div><p class="meta">'+(S.profile.is_pro?'Active'+(S.profile.pro_until?' jusqu’au '+fdate(S.profile.pro_until):''):'Badge Pro et boutique mise en valeur.')+'</p><button class="btn" data-act="order" data-kind="pro_monthly">Demander l’abonnement</button></div>'+
+   '<div class="offer"><h3>Annonce mise en avant</h3><div class="price">'+pr('featured_7d')+'</div><p class="meta">Depuis l’onglet « Mes annonces », choisissez une annonce publiée puis « Mettre en avant ».</p></div></div>'+
+   '<div class="note" style="margin:0"><b>Paiement</b>'+esc(S.pay||PAYDEF)+'</div>'+
+   '<h2>Mes commandes</h2>'+(o.length?'<div class="tw"><table><thead><tr><th>Date</th><th>Offre</th><th>Annonce</th><th>Montant</th><th>Statut</th></tr></thead><tbody>'+o.map(function(x){return '<tr><td>'+fdate(x.created_at)+'</td><td>'+esc(KIND[x.kind]||x.kind)+'</td><td>'+esc(x.listings&&x.listings.title||'')+'</td><td>'+fmt(x.amount)+' FCFA</td><td><span class="pill '+x.status+'">'+({pending:'En attente de paiement',paid:'Payée',cancelled:'Annulée'}[x.status])+'</span></td></tr>'}).join('')+'</tbody></table></div>':'<div class="empty">Aucune commande pour le moment.</div>')+'</div>';
+}
+
+/* ----- administration ----- */
+V.admin=async function(){
+  if(!S.user)return gate('Connectez-vous avec un compte administrateur.');
+  if(!isAdmin())return '<div class="pg"><div class="empty"><b>Accès réservé</b>Cette section est réservée aux comptes administrateurs.</div></div>';
+  var tab=S.tab&&S.tab.indexOf('a-')===0?S.tab:'a-stats';
+  var tabs=[['a-stats','Statistiques'],['a-listings','Annonces'],['a-users','Utilisateurs'],['a-reports','Signalements'],['a-cats','Catégories'],['a-prices','Tarifs'],['a-orders','Commandes'],['a-ads','Publicités']];
+  var body=await ({'a-stats':aStats,'a-listings':aListings,'a-users':aUsers,'a-reports':aReports,'a-cats':aCats,'a-prices':aPrices,'a-orders':aOrders,'a-ads':aAds}[tab])();
+  return '<div class="pg"><h1 style="font-size:2rem">Administration</h1><div class="tabs" role="tablist">'+tabs.map(function(t){return '<button role="tab" aria-selected="'+(t[0]===tab)+'" data-act="tab" data-tab="'+t[0]+'">'+t[1]+'</button>'}).join('')+'</div>'+body+'</div>';
+};
+async function cnt(t,f){var q=sb.from(t).select('*',{count:'exact',head:true});if(f)q=f(q);var r=await q;return r.count||0}
+async function aStats(){
+  var a=await Promise.all([cnt('profiles'),cnt('profiles',function(q){return q.eq('role','seller')}),cnt('listings'),cnt('listings',function(q){return q.eq('status','pending')}),cnt('reports',function(q){return q.eq('status','open')}),cnt('orders',function(q){return q.eq('status','pending')})]);
+  var rv=await run(sb.from('orders').select('amount').eq('status','paid').limit(10000)); var rev=(rv.data||[]).reduce(function(s,x){return s+x.amount},0);
+  var K=function(n,l){return '<div class="kpi"><b>'+fmt(n)+'</b><span>'+l+'</span></div>'};
+  return '<div class="kpis" style="margin-top:1rem">'+K(a[0],'utilisateurs')+K(a[1],'vendeurs')+K(a[2],'annonces')+K(a[3],'annonces à valider')+K(a[4],'signalements ouverts')+K(a[5],'commandes en attente')+K(rev,'FCFA de revenus confirmés')+'</div>';
+}
+async function aListings(){
+  var f=S.af||'pending';
+  var q=sb.from('listings').select('*, profiles(full_name,shop_name)').order('created_at',{ascending:false}).limit(100); if(f!=='all')q=q.eq('status',f);
+  var r=await run(q); var l=r.data||[];
+  return '<div style="display:grid;gap:1rem;margin-top:1rem"><div class="f" style="max-width:240px"><label for="af">Afficher</label><select id="af" data-chg="af">'+[['pending','À valider'],['published','Publiées'],['rejected','Refusées'],['sold','Vendues'],['all','Toutes']].map(function(o){return '<option value="'+o[0]+'"'+(o[0]===f?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select></div>'+
+   (l.length?'<div class="tw"><table><thead><tr><th>Annonce</th><th>Vendeur</th><th>Prix</th><th>État</th><th>Actions</th></tr></thead><tbody>'+l.map(function(x){var sp=x.profiles||{};return '<tr><td><b>'+esc(x.title)+'</b><br><span class="meta">'+esc(catName(x.category))+' · '+esc(x.region)+'</span></td><td>'+esc(sp.shop_name||sp.full_name||'')+'<br><span class="meta">'+esc(x.whatsapp)+'</span></td><td>'+fmt(x.price)+'</td><td><span class="pill '+x.status+'">'+STAT[x.status]+'</span></td><td><button class="btn sm ghost" data-act="open" data-id="'+x.id+'">Voir</button>'+(x.status!=='published'?'<button class="btn sm" data-act="set-status" data-s="published" data-id="'+x.id+'">Valider</button>':'')+(x.status!=='rejected'?'<button class="btn sm ghost" data-act="set-status" data-s="rejected" data-id="'+x.id+'">Refuser</button>':'')+'<button class="btn sm danger" data-act="adm-del" data-id="'+x.id+'">Supprimer</button></td></tr>'}).join('')+'</tbody></table></div>':'<div class="empty"><b>Rien à afficher</b>Aucune annonce dans cette catégorie.</div>')+'</div>';
+}
+async function aUsers(){
+  var r=await run(sb.from('profiles').select('*').order('created_at',{ascending:false}).limit(200)); var l=r.data||[];
+  return '<div class="tw" style="margin-top:1rem"><table><thead><tr><th>Nom</th><th>WhatsApp</th><th>Rôle</th><th>Pro</th><th>Statut</th></tr></thead><tbody>'+l.map(function(u){
+    var me=u.id===S.user.id;
+    return '<tr><td><b>'+esc(u.full_name||'Sans nom')+'</b>'+(u.shop_name?'<br><span class="meta">'+esc(u.shop_name)+'</span>':'')+'<br><span class="meta">'+fdate(u.created_at)+'</span></td><td>'+esc(u.phone||'')+'</td><td><select data-chg="u-role" data-id="'+u.id+'" aria-label="Rôle"'+(me?' disabled':'')+'><option value="buyer"'+(u.role==='buyer'?' selected':'')+'>Acheteur</option><option value="seller"'+(u.role==='seller'?' selected':'')+'>Vendeur</option><option value="admin"'+(u.role==='admin'?' selected':'')+'>Admin</option></select></td><td><button class="btn sm ghost" data-act="u-pro" data-id="'+u.id+'" data-v="'+(!u.is_pro)+'">'+(u.is_pro?'Retirer Pro':'Passer Pro')+'</button></td><td>'+(me?'Vous':'<button class="btn sm '+(u.banned?'':'danger')+'" data-act="u-ban" data-id="'+u.id+'" data-v="'+(!u.banned)+'">'+(u.banned?'Réactiver':'Bannir')+'</button>')+'</td></tr>'}).join('')+'</tbody></table></div>';
+}
+async function aReports(){
+  var r=await run(sb.from('reports').select('*, listings(id,title,status)').order('created_at',{ascending:false}).limit(100)); var l=r.data||[];
+  if(!l.length)return '<div class="empty" style="margin-top:1rem"><b>Aucun signalement</b>Les annonces signalées par les utilisateurs apparaîtront ici.</div>';
+  return '<div class="tw" style="margin-top:1rem"><table><thead><tr><th>Annonce</th><th>Motif</th><th>Date</th><th>Statut</th><th>Actions</th></tr></thead><tbody>'+l.map(function(x){var li=x.listings||{};return '<tr><td>'+(li.id?'<button class="btn sm ghost" data-act="open" data-id="'+li.id+'">'+esc(li.title)+'</button>':'<span class="meta">Annonce supprimée</span>')+'</td><td>'+esc(x.reason)+'</td><td>'+fdate(x.created_at)+'</td><td><span class="pill '+x.status+'">'+(x.status==='open'?'Ouvert':'Traité')+'</span></td><td>'+(x.status==='open'?'<button class="btn sm" data-act="rep-done" data-id="'+x.id+'">Marquer traité</button>':'')+(li.id?'<button class="btn sm danger" data-act="adm-del" data-id="'+li.id+'">Supprimer l’annonce</button>':'')+'</td></tr>'}).join('')+'</tbody></table></div>';
+}
+async function aCats(){
+  await loadCats();
+  return '<div style="display:grid;gap:1rem;margin-top:1rem"><div class="tw"><table><thead><tr><th>Identifiant</th><th>Nom affiché</th><th>Ordre</th><th></th></tr></thead><tbody>'+S.cats.map(function(c){return '<tr><td>'+esc(c.slug)+'</td><td><input id="cn-'+esc(c.slug)+'" value="'+esc(c.name)+'" aria-label="Nom"></td><td><input id="co-'+esc(c.slug)+'" type="number" value="'+c.sort+'" style="width:70px" aria-label="Ordre"></td><td><button class="btn sm" data-act="cat-save" data-slug="'+esc(c.slug)+'">Enregistrer</button><button class="btn sm danger" data-act="cat-del" data-slug="'+esc(c.slug)+'">Supprimer</button></td></tr>'}).join('')+'</tbody></table></div>'+
+   '<form class="form" data-form="newcat"><h3>Ajouter une catégorie</h3><div class="row2"><div class="f"><label for="ncs">Identifiant (minuscules, sans espace)</label><input id="ncs" name="slug" required pattern="[a-z0-9-]+"></div><div class="f"><label for="ncn">Nom affiché</label><input id="ncn" name="name" required></div></div><button class="btn" type="submit" style="justify-self:start">Ajouter</button></form></div>';
+}
+async function aPrices(){
+  await loadPricing();
+  return '<div style="display:grid;gap:1rem;margin-top:1rem"><div class="tw"><table><thead><tr><th>Offre</th><th>Prix (FCFA)</th><th></th></tr></thead><tbody>'+S.pricing.map(function(p){return '<tr><td><b>'+esc(p.label)+'</b><br><span class="meta">'+esc(p.description||'')+'</span></td><td><input id="pr-'+esc(p.key)+'" type="number" min="0" step="100" value="'+p.amount+'" style="width:120px" aria-label="Prix"></td><td><button class="btn sm" data-act="price-save" data-key="'+esc(p.key)+'">Enregistrer</button></td></tr>'}).join('')+'</tbody></table></div>'+
+   '<form class="form" data-form="paytext"><h3>Message de paiement affiché aux vendeurs</h3><div class="f"><label for="pt">Texte (numéro Wave ou Orange Money, consignes…)</label><textarea id="pt" name="text">'+esc(S.pay||PAYDEF)+'</textarea></div><button class="btn" type="submit" style="justify-self:start">Enregistrer le message</button></form></div>';
+}
+async function aOrders(){
+  var r=await run(sb.from('orders').select('*, profiles(full_name,phone,shop_name), listings(title)').order('created_at',{ascending:false}).limit(100)); var l=r.data||[];
+  if(!l.length)return '<div class="empty" style="margin-top:1rem"><b>Aucune commande</b>Les demandes de mise en avant et d’abonnement arriveront ici.</div>';
+  return '<div class="tw" style="margin-top:1rem"><table><thead><tr><th>Vendeur</th><th>Offre</th><th>Montant</th><th>Statut</th><th>Actions</th></tr></thead><tbody>'+l.map(function(x){var p=x.profiles||{};return '<tr><td>'+esc(p.shop_name||p.full_name||'')+'<br><span class="meta">'+esc(p.phone||'')+' · '+fdate(x.created_at)+'</span></td><td>'+esc(KIND[x.kind]||x.kind)+(x.listings?'<br><span class="meta">'+esc(x.listings.title)+'</span>':'')+'</td><td>'+fmt(x.amount)+'</td><td><span class="pill '+x.status+'">'+({pending:'En attente',paid:'Payée',cancelled:'Annulée'}[x.status])+'</span></td><td>'+(x.status==='pending'?'<button class="btn sm" data-act="ord-paid" data-id="'+x.id+'">Paiement reçu, activer</button><button class="btn sm danger" data-act="ord-cancel" data-id="'+x.id+'">Annuler</button>':'')+'</td></tr>'}).join('')+'</tbody></table></div>';
+}
+async function aAds(){
+  var r=await run(sb.from('ads').select('*').order('created_at',{ascending:false})); var l=r.data||[];
+  return '<div style="display:grid;gap:1rem;margin-top:1rem">'+(l.length?'<div class="tw"><table><thead><tr><th>Publicité</th><th>Fin</th><th>Statut</th><th></th></tr></thead><tbody>'+l.map(function(a){return '<tr><td><b>'+esc(a.title)+'</b><br><span class="meta">'+esc(a.link_url||'')+'</span></td><td>'+(a.ends_at?fdate(a.ends_at):'Sans fin')+'</td><td><span class="pill '+(a.active?'published':'cancelled')+'">'+(a.active?'Active':'Désactivée')+'</span></td><td><button class="btn sm ghost" data-act="ad-toggle" data-id="'+a.id+'" data-v="'+(!a.active)+'">'+(a.active?'Désactiver':'Activer')+'</button><button class="btn sm danger" data-act="ad-del" data-id="'+a.id+'">Supprimer</button></td></tr>'}).join('')+'</tbody></table></div>':'<div class="empty"><b>Aucune publicité</b>Ajoutez la première ci-dessous.</div>')+
+   '<form class="form" data-form="newad"><h3>Ajouter une publicité sponsorisée</h3><div class="f"><label for="adt">Texte</label><input id="adt" name="title" required maxlength="100"></div><div class="row2"><div class="f"><label for="adl">Lien de destination</label><input id="adl" name="link" type="url" placeholder="https://"></div><div class="f"><label for="adi">Adresse de l’image</label><input id="adi" name="image" type="url" placeholder="https://"></div></div><div class="f"><label for="ade">Date de fin (facultatif)</label><input id="ade" name="ends" type="date"></div><button class="btn" type="submit" style="justify-self:start">Publier la publicité</button></form></div>';
+}
+
+/* ---------- rendu ---------- */
+async function render(){
+  var name=cur(); var my=++S.tok;
+  head(); foot();
+  if(VIEWS.indexOf(name)<0){$('#app').innerHTML='<div class="pg"><div class="empty"><b>Page introuvable</b>Cette adresse n’existe pas.<br><br><button class="btn" data-act="nav" data-to="accueil">Retour à l’accueil</button></div></div>';return}
+  var app=$('#app'); app.innerHTML='<div class="pg"><div class="sk"></div><div class="sk" style="height:120px"></div></div>';
+  var html; try{html=await V[name]()}catch(e){html='<div class="pg"><div class="empty"><b>Une erreur est survenue</b>Rechargez la page. Si le problème continue, vérifiez la configuration.</div></div>'}
+  if(my!==S.tok||html==null)return;
+  app.innerHTML=html;
+}
+
+/* ---------- actions ---------- */
+function armed(el){ if(el.dataset.armed){return true} el.dataset.armed='1';var t=el.textContent;el.textContent='Confirmer';setTimeout(function(){if(el.isConnected){delete el.dataset.armed;el.textContent=t}},4000);return false }
+function digits(s){return String(s||'').replace(/\D/g,'')}
+async function applyOrder(o){
+  var now=new Date();
+  if(o.kind==='featured_7d'&&o.listing_id){await run(sb.from('listings').update({featured_until:new Date(now.getTime()+7*864e5).toISOString()}).eq('id',o.listing_id))}
+  if(o.kind==='urgent_badge'&&o.listing_id){await run(sb.from('listings').update({urgent:true}).eq('id',o.listing_id))}
+  if(o.kind==='pro_monthly'){await run(sb.from('profiles').update({is_pro:true,pro_until:new Date(now.getTime()+30*864e5).toISOString()}).eq('id',o.user_id))}
+}
+var ACT={
+ nav:function(el){go(el.dataset.to)},
+ menu:function(){S.menu=!S.menu;head()},
+ auth:function(el){S.p={mode:el.dataset.mode};go('connexion',{mode:el.dataset.mode})},
+ post:function(){ if(!S.user){go('connexion',{mode:'up',role:'seller'});toast('Créez un compte vendeur pour déposer une annonce.');return} S.tab='form';S.edit=null;S.formImgs=[];go('vendeur') },
+ 'seller-cta':function(){ if(S.user){S.tab='form';S.edit=null;S.formImgs=[];go('vendeur')}else go('connexion',{mode:'up',role:'seller'}) },
+ cat:function(el){go('annonces',{cat:el.dataset.slug})},
+ region:function(el){go('annonces',{region:el.dataset.r})},
+ open:function(el){go('annonce',{id:el.dataset.id})},
+ shop:function(el){go('boutique',{id:el.dataset.id})},
+ thumb:function(el){var b=$('#bigimg');b.innerHTML='<img src="'+esc(el.dataset.src)+'" alt="">';document.querySelectorAll('.thumbs button').forEach(function(x){x.removeAttribute('aria-current')});el.setAttribute('aria-current','true')},
+ 'report-open':function(){var f=$('#repf');f.hidden=!f.hidden},
+ fav:async function(el){
+  if(!S.user){toast('Connectez-vous pour utiliser les favoris.',true);go('connexion',{mode:'in'});return}
+  var id=el.dataset.id,on=S.favs.has(id);
+  var r=on?await run(sb.from('favorites').delete().eq('listing_id',id).eq('user_id',S.user.id)):await run(sb.from('favorites').insert({user_id:S.user.id,listing_id:id}));
+  if(r.error)return; on?S.favs.delete(id):S.favs.add(id);
+  el.textContent=on?'Ajouter aux favoris':'Retirer des favoris';el.setAttribute('aria-pressed',String(!on));toast(on?'Retiré des favoris':'Ajouté aux favoris');
+ },
+ more:async function(el){
+  var p=S.p; var more=await fetchListings({q:p.q,region:p.region,cat:p.cat,cond:p.cond,min:p.min,max:p.max,limit:24,offset:(S.list||[]).length});
+  S.list=(S.list||[]).concat(more); $('#results').innerHTML=grid(S.list); if(more.length<24)el.remove();
+ },
+ logout:async function(){ if(sb)await sb.auth.signOut(); S.user=null;S.profile=null;S.favs=new Set();S.tab=null;toast('Vous êtes déconnecté.');go('accueil') },
+ reset:async function(){
+  var em=($('#ae')||{}).value; if(!em){toast('Saisissez votre email, puis cliquez sur « Mot de passe oublié ».',true);return} if(!db())return;
+  var r=await run(sb.auth.resetPasswordForEmail(em)); if(!r.error)toast('Un email de réinitialisation vient d’être envoyé.');
+ },
+ 'cfg-clear':function(){try{localStorage.removeItem('kj_url');localStorage.removeItem('kj_key')}catch(e){} toast('Configuration effacée. Rechargement…');setTimeout(function(){location.reload()},700)},
+ tab:function(el){S.tab=el.dataset.tab;if(S.tab!=='form'){S.edit=null;S.formImgs=[]}render()},
+ 'become-seller':async function(){ if(!db())return; var r=await run(sb.from('profiles').update({role:'seller'}).eq('id',S.user.id)); if(!r.error){await loadProfile();toast('Votre espace vendeur est activé.');render()} },
+ edit:function(el){var l=(S.mine||[]).filter(function(x){return x.id===el.dataset.id})[0];if(!l)return;S.edit=l;S.formImgs=(l.images||[]).slice();S.tab='form';render();window.scrollTo(0,0)},
+ 'edit-cancel':function(){S.edit=null;S.formImgs=[];S.tab='annonces';render()},
+ 'rm-img':function(el){S.formImgs.splice(Number(el.dataset.i),1);var f=$('[data-form=listing]');keepForm(f);render()},
+ 'del-listing':async function(el){ if(!armed(el))return; var r=await run(sb.from('listings').delete().eq('id',el.dataset.id)); if(!r.error){toast('Annonce supprimée.');render()} },
+ sold:async function(el){ var r=await run(sb.from('listings').update({status:'sold'}).eq('id',el.dataset.id)); if(!r.error){toast('Annonce marquée comme vendue.');render()} },
+ order:async function(el){
+  var r=await run(sb.from('orders').insert({user_id:S.user.id,kind:el.dataset.kind,listing_id:el.dataset.id||null}));
+  if(!r.error){await loadPricing();toast('Commande enregistrée. '+(S.pay||PAYDEF));S.tab='offres';render()}
+ },
+ 'set-status':async function(el){ var r=await run(sb.from('listings').update({status:el.dataset.s}).eq('id',el.dataset.id)); if(!r.error){toast(el.dataset.s==='published'?'Annonce validée et publiée.':'Annonce refusée.');render()} },
+ 'adm-del':async function(el){ if(!armed(el))return; var r=await run(sb.from('listings').delete().eq('id',el.dataset.id)); if(!r.error){toast('Annonce supprimée.');render()} },
+ 'u-pro':async function(el){ var on=el.dataset.v==='true'; var r=await run(sb.from('profiles').update({is_pro:on,pro_until:on?new Date(Date.now()+30*864e5).toISOString():null}).eq('id',el.dataset.id)); if(!r.error){toast('Compte mis à jour.');render()} },
+ 'u-ban':async function(el){ var on=el.dataset.v==='true'; if(on&&!armed(el))return; var r=await run(sb.from('profiles').update({banned:on}).eq('id',el.dataset.id)); if(!r.error){toast(on?'Utilisateur banni.':'Utilisateur réactivé.');render()} },
+ 'rep-done':async function(el){ var r=await run(sb.from('reports').update({status:'resolved'}).eq('id',el.dataset.id)); if(!r.error){toast('Signalement traité.');render()} },
+ 'cat-save':async function(el){ var s=el.dataset.slug; var r=await run(sb.from('categories').update({name:$('#cn-'+s).value,sort:Number($('#co-'+s).value)||0}).eq('slug',s)); if(!r.error){toast('Catégorie enregistrée.');await loadCats()} },
+ 'cat-del':async function(el){ if(!armed(el))return; var r=await run(sb.from('categories').delete().eq('slug',el.dataset.slug)); if(!r.error){toast('Catégorie supprimée.');render()} },
+ 'price-save':async function(el){ var k=el.dataset.key; var v=Math.round(Number($('#pr-'+k).value)); if(!(v>=0)){toast('Prix invalide.',true);return} var r=await run(sb.from('pricing').update({amount:v}).eq('key',k)); if(!r.error){toast('Tarif enregistré.');await loadPricing()} },
+ 'ord-paid':async function(el){
+  var r0=await run(sb.from('orders').select('*').eq('id',el.dataset.id).maybeSingle()); var o=r0.data; if(!o)return;
+  var r=await run(sb.from('orders').update({status:'paid',paid_at:new Date().toISOString()}).eq('id',o.id)); if(r.error)return;
+  await applyOrder(o); toast('Paiement confirmé et offre activée.'+(o.kind==='banner_week'?' Ajoutez la publicité dans l’onglet Publicités.':'')); render();
+ },
+ 'ord-cancel':async function(el){ var r=await run(sb.from('orders').update({status:'cancelled'}).eq('id',el.dataset.id)); if(!r.error){toast('Commande annulée.');render()} },
+ 'ad-toggle':async function(el){ var r=await run(sb.from('ads').update({active:el.dataset.v==='true'}).eq('id',el.dataset.id)); if(!r.error)render() },
+ 'ad-del':async function(el){ if(!armed(el))return; var r=await run(sb.from('ads').delete().eq('id',el.dataset.id)); if(!r.error){toast('Publicité supprimée.');render()} }
+};
+var CHG={
+ af:function(el){S.af=el.value;render()},
+ 'u-role':async function(el){ var r=await run(sb.from('profiles').update({role:el.value}).eq('id',el.dataset.id)); if(!r.error)toast('Rôle mis à jour.'); else render() }
+};
+function keepForm(f){ if(!f)return; var d=new FormData(f); S.edit=Object.assign({},S.edit||{},{title:d.get('title'),description:d.get('description'),price:d.get('price'),category:d.get('category'),condition:d.get('condition'),whatsapp:d.get('whatsapp'),region:d.get('region'),city:d.get('city')}); }
+document.addEventListener('click',function(e){var el=e.target.closest('[data-act]');if(!el)return;var a=ACT[el.dataset.act];if(!a)return;
+  var needs=/^(fav|more|become-seller|del-listing|sold|order|set-status|adm-del|u-|rep-|cat-|price-|ord-|ad-)/.test(el.dataset.act); if(needs&&!db())return; a(el)});
+document.addEventListener('change',function(e){var el=e.target;if(el.dataset&&el.dataset.chg&&CHG[el.dataset.chg])CHG[el.dataset.chg](el)});
+
+/* ---------- formulaires ---------- */
+function shrink(file){return new Promise(function(res,rej){var img=new Image(),u=URL.createObjectURL(file);img.onload=function(){var m=1280,s=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);c.toBlob(function(b){URL.revokeObjectURL(u);b?res(b):rej(new Error('Image illisible'))},'image/jpeg',.8)};img.onerror=function(){URL.revokeObjectURL(u);rej(new Error('Image illisible'))};img.src=u})}
+function uid(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)}
+function ferr(id,m){var e=$(id);if(e)e.innerHTML=m?'<div class="err" role="alert">'+esc(m)+'</div>':''}
+var FORMS={
+ search:function(f){var d=new FormData(f);go('annonces',{q:String(d.get('q')||'').trim(),region:d.get('region')||''})},
+ filters:function(f){var d=new FormData(f);go('annonces',{q:String(d.get('q')||'').trim(),region:d.get('region'),cat:d.get('cat'),cond:d.get('cond'),min:Number(d.get('min'))||'',max:Number(d.get('max'))||''})},
+ config:function(f){var d=new FormData(f);var u=String(d.get('url')||'').trim().replace(/\/+$/,''),k=String(d.get('key')||'').trim();
+  if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(u)){toast('L’URL doit ressembler à https://xxxx.supabase.co',true);return}
+  if(k.length<40){toast('La clé anon public semble incomplète.',true);return}
+  try{localStorage.setItem('kj_url',u);localStorage.setItem('kj_key',k)}catch(e){toast('Ce navigateur bloque l’enregistrement. Collez les valeurs dans index.html.',true);return}
+  toast('Enregistré. Rechargement…');setTimeout(function(){location.reload()},700)},
+ signin:async function(f){ if(!db())return; var d=new FormData(f);
+  var r=await sb.auth.signInWithPassword({email:String(d.get('email')).trim(),password:String(d.get('pw'))});
+  if(r.error){ferr('#autherr',r.error.message==='Invalid login credentials'?'Email ou mot de passe incorrect.':r.error.message);return}
+  toast('Connexion réussie. Bienvenue !'); },
+ signup:async function(f){ if(!db())return; var d=new FormData(f); var ph=digits(d.get('phone'));
+  if(ph.length<9){ferr('#autherr','Saisissez un numéro WhatsApp valide (9 chiffres, ex. 77 123 45 67).');return}
+  var r=await sb.auth.signUp({email:String(d.get('email')).trim(),password:String(d.get('pw')),options:{data:{full_name:String(d.get('name')).trim(),phone:ph,role:d.get('role')}}});
+  if(r.error){ferr('#autherr',r.error.message);return}
+  if(!r.data.session){ferr('#autherr','');toast('Compte créé. Confirmez votre adresse email avec le lien reçu, puis connectez-vous.');go('connexion',{mode:'in'})}else toast('Compte créé. Bienvenue sur KAY JAAYMA !'); },
+ report:async function(f){ if(!db())return; if(!S.user){toast('Connectez-vous pour signaler une annonce.',true);go('connexion',{mode:'in'});return}
+  var d=new FormData(f); var reason=d.get('reason')+(d.get('detail')?' : '+String(d.get('detail')).trim():'');
+  var r=await run(sb.from('reports').insert({listing_id:f.dataset.id,reporter_id:S.user.id,reason:reason})); if(!r.error){f.hidden=true;toast('Merci. Votre signalement a été transmis à l’équipe.')} },
+ shop:async function(f){ var d=new FormData(f); var u={shop_name:String(d.get('shop_name')).trim()||null,shop_description:String(d.get('shop_description')).trim()||null,full_name:String(d.get('full_name')).trim(),phone:digits(d.get('phone'))||null,region:d.get('region')||null,city:String(d.get('city')).trim()||null};
+  var r=await run(sb.from('profiles').update(u).eq('id',S.user.id)); if(!r.error){await loadProfile();toast('Boutique enregistrée.');render()} },
+ listing:async function(f){
+  var d=new FormData(f); var btn=$('#lsub'); var price=Math.round(Number(d.get('price'))); var wa=digits(d.get('whatsapp'));
+  var files=Array.from(f.querySelector('#lf').files||[]);
+  if(!(price>=0)||String(d.get('price'))===''){ferr('#lerr','Indiquez un prix en FCFA.');return}
+  if(wa.length<9){ferr('#lerr','Le numéro WhatsApp doit contenir au moins 9 chiffres.');return}
+  if(S.formImgs.length+files.length<1){ferr('#lerr','Ajoutez au moins une photo.');return}
+  if(S.formImgs.length+files.length>6){ferr('#lerr','6 photos maximum.');return}
+  ferr('#lerr',''); btn.disabled=true; btn.textContent='Envoi en cours…';
+  try{
+    var urls=S.formImgs.slice();
+    for(var i=0;i<files.length;i++){
+      btn.textContent='Photo '+(i+1)+' sur '+files.length+'…';
+      var blob=await shrink(files[i]); var path=S.user.id+'/'+uid()+'.jpg';
+      var up=await sb.storage.from('listings').upload(path,blob,{contentType:'image/jpeg',cacheControl:'31536000'});
+      if(up.error)throw up.error; urls.push(sb.storage.from('listings').getPublicUrl(path).data.publicUrl);
+    }
+    var row={title:String(d.get('title')).trim(),description:String(d.get('description')).trim(),price:price,category:d.get('category'),condition:d.get('condition'),region:d.get('region'),city:String(d.get('city')).trim()||null,whatsapp:wa,images:urls};
+    var r=(S.edit&&S.edit.id)?await sb.from('listings').update(row).eq('id',S.edit.id):await sb.from('listings').insert(Object.assign({seller_id:S.user.id},row));
+    if(r.error)throw r.error;
+    toast(S.edit&&S.edit.id?'Annonce enregistrée. Elle repasse en validation.':'Annonce envoyée. Elle sera publiée après validation par l’équipe.');
+    S.edit=null;S.formImgs=[];S.tab='annonces';render();
+  }catch(err){ferr('#lerr',(err&&err.message)||'Envoi impossible. Réessayez.');btn.disabled=false;btn.textContent=S.edit?'Enregistrer':'Envoyer pour validation'}
+ },
+ newcat:async function(f){var d=new FormData(f);var r=await run(sb.from('categories').insert({slug:String(d.get('slug')).trim(),name:String(d.get('name')).trim(),sort:S.cats.length+1}));if(!r.error){toast('Catégorie ajoutée.');render()}},
+ paytext:async function(f){var d=new FormData(f);var r=await run(sb.from('site_settings').upsert({key:'payment_instructions',value:String(d.get('text')).trim()}));if(!r.error){S.pay=String(d.get('text')).trim();toast('Message enregistré.')}},
+ newad:async function(f){var d=new FormData(f);var r=await run(sb.from('ads').insert({title:String(d.get('title')).trim(),link_url:d.get('link')||null,image_url:d.get('image')||null,ends_at:d.get('ends')?new Date(d.get('ends')+'T23:59:59').toISOString():null,active:true}));if(!r.error){toast('Publicité publiée sur la page d’accueil.');render()}}
+};
+document.addEventListener('submit',function(e){var f=e.target.closest('form[data-form]');if(!f)return;e.preventDefault();var fn=FORMS[f.dataset.form];if(!fn)return;
+  if(!/^(search|filters|config)$/.test(f.dataset.form)&&!db())return; fn(f)});
+
+/* ---------- démarrage ---------- */
+(async function init(){
+  if(sb){
+    try{
+      var s=await sb.auth.getSession(); S.user=s.data&&s.data.session?s.data.session.user:null;
+      await Promise.all([loadCats(),loadProfile(),loadPricing()]);
+      sb.auth.onAuthStateChange(function(ev,sess){
+        var nu=sess?sess.user:null; if((nu&&nu.id)===(S.user&&S.user.id))return;
+        S.user=nu; setTimeout(async function(){await loadProfile(); if(ev==='SIGNED_IN'&&cur()==='connexion')go(S.profile&&S.profile.role==='seller'?'vendeur':'accueil'); else render()},0);
+      });
+    }catch(e){}
+  }
+  render();
+})();
+})();
+</script>
+
+</body></html>
